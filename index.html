@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div id="languageSwitch">
+            <span>Sprache/Jezyk:</span>
+            <a href="index.html"><img src="de_flag.png" alt="Deutsch" title="Deutsch" width="30" height="20"></a>
+            <a href="indexpl.html"><img src="pl_flag.png" alt="Polski" title="Polski" width="30" height="20"></a>
+        </div>
+        <h1>test</h1>
+        <p>test</p>
+        <div id="menu-toggle" class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </header>
+        <!-- Navigationsleiste -->
+        <nav class="navbar">
+            <div id="navbar-links" class="navbar-links">
+            <a href="index.html" class="active">Startseite</a> 
+            <a href="seite1.html">Über uns</a> 
+            <a href="seite2.html">Unsere Dienstleistungen</a> 
+            <a href="seite3.html">Jobangebote</a> 
+            <a href="seite4.html">Für Arbeitgeber</a>             
+            <a href="seite5.html">Kontakt</a> 
+        </div>
+        </nav>
+    <main>
+        <section>
+            <h2 class="center">Arbeit und Unterkunft in Deutschland – unkompliziert und zuverlässig.</h2>
+            <p></p>
+        </section>
+        <section>
+            <h2 class="center">Wir helfen polnischen Fachkräften, in Deutschland passende Arbeitsstellen und Unterkünfte zu finden.</h2>
+            <p></p>
+        </section>
+        <section class="navbar">
+             <a>Jobvermittlung</a> -
+            <a>Unterkunftsorganisation</a> -
+            <a>Beratung</a> 
+        </section>
+
+            <h1 class="center">Ihre Vorteile bei Zusammenarbeit:</h1>
+            <h2 class="center">Schnelle Vermittlung</h2>
+            <h2 class="center">Zuverlässige Unterkünfte</h2>
+            <h2 class="center">Erfahrung im deutschen Markt</h2>
+
+    </main>
+    <footer>
+        <p>&copy; 2024 - Mein Name</p>
+    </footer>
+    <!-- JavaScript direkt vor dem schließenden </body> Tag -->
+     <script>
+        document.getElementById("menu-toggle").addEventListener("click", function() {
+            this.classList.toggle("active"); // "active"-Klasse toggeln
+            var navbarLinks = document.getElementById("navbar-links");
+    // Überprüfe, ob das Menü bereits aktiv ist
+    if (navbarLinks.classList.contains("active")) {
+        navbarLinks.style.maxHeight = "0"; // Schließen: Höhe auf 0 setzen
+        navbarLinks.style.opacity = "0"; // Unsichtbar machen
+        navbarLinks.classList.remove("active");
+    } else {
+        var height = navbarLinks.scrollHeight + 115; // Berechne die tatsächliche Höhe
+        console.log("Berechnete Höhe:", height); // Debug-Ausgabe
+        navbarLinks.style.maxHeight = height + "px"; // Dynamische Höhe
+        navbarLinks.style.opacity = "1"; // Sichtbar machen
+        navbarLinks.classList.add("active");
+    }
+});
+
+// Desktop-Navigation bei Fenstergröße anpassen
+window.addEventListener("resize", function () {
+    var navbarLinks = document.getElementById("navbar-links");
+    var menuToggle = document.getElementById("menu-toggle");
+    if (window.innerWidth > 795) {
+        navbarLinks.style.maxHeight = "none"; // Volle Höhe zulassen
+        navbarLinks.style.opacity = "1"; // Sichtbar machen
+        navbarLinks.classList.remove("active"); // Entfernt die "active"-Klasse, damit das Menü geschlossen ist
+        menuToggle.classList.remove("active");
+    } else if (!navbarLinks.classList.contains("active")) {
+        navbarLinks.style.maxHeight = "0"; // Mobile-Ansicht zurücksetzen
+        navbarLinks.style.opacity = "0"; // Unsichtbar machen
+        menuToggle.classList.remove("active"); // Hamburger-Icon zurücksetzen
+    }
+});
+     </script>
+</body>
+</html>
